@@ -4,745 +4,299 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#090909">
-<meta name="description" content="LISAN GAMING X — gaming profiles, mini-games, XP and community tournaments.">
-<title>LISAN GAMING X | Esports Arena</title>
+<meta name="theme-color" content="#080d25">
+<title>Educational Galaxy | Made by Lisan Sarkar</title>
 <style>
-:root {
-  color-scheme: dark;
-  --bg:#090909;
-  --panel:#151515;
-  --panel2:#1d1d1d;
-  --red:#ff263d;
-  --red2:#ff6577;
-  --text:#fff;
-  --muted:#aaa;
-  --border:#333;
-  --green:#65e6a1;
-}
+:root{--bg:#080d25;--panel:#121c3c;--text:#f4f6ff;--muted:#b7c3e6;--accent:#70e8ff;--purple:#b59cff;--line:#2a3966}
+[data-theme="light"]{--bg:#f2f5ff;--panel:#fff;--text:#172044;--muted:#586586;--accent:#006d91;--purple:#6947d9;--line:#d3dcf2}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:95px}
-body{margin:0;background:var(--bg);color:var(--text);font:15px Arial,sans-serif}
-button,input{font:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,Arial,sans-serif;transition:.2s}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit}
 button{cursor:pointer}
-button:disabled{opacity:.45;cursor:not-allowed}
-a{color:var(--red2);text-decoration:none}
-a:hover{color:#fff}
-header{
-  position:sticky;top:0;z-index:5;
-  display:flex;align-items:center;justify-content:space-between;
-  gap:14px;padding:16px 5%;
-  background:#101010f5;border-bottom:1px solid var(--border);
-  backdrop-filter:blur(14px)
-}
-.logo{font-size:20px;font-weight:900;font-style:italic;color:#fff;white-space:nowrap}
-.logo span,.red{color:var(--red)}
-nav{display:flex;gap:15px;flex-wrap:wrap;font-size:12px}
-nav a{color:#fff}
-main{max-width:1120px;margin:auto;padding:22px}
-.hero{
-  position:relative;overflow:hidden;padding:40px 28px;
-  border:1px solid #65202b;border-radius:18px;
-  background:radial-gradient(circle at 90% 10%,#65101e,transparent 45%),
-  linear-gradient(120deg,#26090d,#111)
-}
-.eyebrow{color:var(--red2);font-size:11px;letter-spacing:3px;font-weight:bold}
-.hero h1{font-size:clamp(40px,8vw,76px);font-style:italic;line-height:.98;margin:18px 0}
-.hero h1 span{color:var(--red)}
-.hero p,.muted{color:var(--muted);line-height:1.7}
-.hero p{max-width:650px}
-.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  gap:7px;border:1px solid transparent;border-radius:8px;
-  padding:11px 15px;background:var(--red);color:#fff;
-  font-weight:bold;font-size:12px;letter-spacing:.3px
-}
-.btn:hover{filter:brightness(1.12)}
-.btn.secondary{background:#252525;border-color:#444}
-.btn.danger{background:#38141a;border-color:#71303a}
-.panel{
-  margin-top:18px;padding:20px;border:1px solid var(--border);
-  border-radius:14px;background:var(--panel)
-}
-.panel h2{font-size:19px;margin:0 0 10px}
-.panel h3{font-size:16px;margin:0 0 12px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.game{padding:18px;border:1px solid #383838;border-radius:12px;background:#101010}
-.game p{color:var(--muted);line-height:1.6}
-label{display:block;font-size:12px;color:#ccc;margin:9px 0 5px}
-input{
-  display:block;width:100%;padding:12px;margin:0 0 10px;
-  background:#0d0d0d;color:#fff;border:1px solid #444;border-radius:8px
-}
-input:focus{outline:2px solid #a91d2d;border-color:var(--red)}
-.row{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:12px;padding:13px 0;border-bottom:1px solid #303030
-}
-.row:last-child{border-bottom:0}
-.row-info{min-width:0;overflow-wrap:anywhere}
-.row-info p{margin:6px 0}
-.badge{
-  display:inline-block;padding:5px 8px;border-radius:5px;
-  background:#341018;color:#ff8794;font-size:10px;font-weight:bold
-}
-.badge.green{background:#102c20;color:var(--green)}
-.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:16px}
-.stat{background:var(--panel2);padding:15px 7px;text-align:center;border-radius:9px}
-.stat b{display:block;color:var(--red);font-size:24px;margin-bottom:5px}
-.stat small{font-size:10px;color:#bbb}
-.notice{font-size:12px;line-height:1.7;color:var(--muted)}
-.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.empty{padding:18px;text-align:center;color:var(--muted);font-size:13px}
-footer{text-align:center;color:var(--muted);padding:30px 12px;border-top:1px solid #333;margin-top:30px;font-size:12px}
-footer h2{color:white}
-#message{
-  position:fixed;bottom:15px;left:5%;width:90%;max-width:650px;
-  z-index:10;padding:14px;border:1px solid #63313a;border-radius:10px;
-  background:#241115;display:none;box-shadow:0 8px 30px #0008
-}
-#message[data-type="success"]{border-color:#286a49;background:#10251b}
-#message[data-type="error"]{border-color:#8b2936}
-[hidden]{display:none!important}
-@media(max-width:650px){
-  header{align-items:flex-start;flex-direction:column;padding:14px 5%}
-  nav{gap:12px}
-  main{padding:12px}
-  .grid{grid-template-columns:1fr}
-  .hero{padding:28px 17px}
-  .panel{padding:16px}
-  .row{align-items:flex-start}
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *{animation:none!important;transition:none!important}
-}
+header{position:sticky;top:0;z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav{max-width:1150px;margin:auto;padding:13px 4%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.brand{font-size:20px;font-weight:900}.brand span{color:var(--accent)}
+nav{display:flex;gap:13px;flex-wrap:wrap;align-items:center}
+nav a{font-size:13px;color:var(--muted)}
+nav a:hover{color:var(--accent)}
+button,.btn{border:1px solid var(--line);border-radius:10px;padding:9px 13px;background:var(--panel);color:var(--text);display:inline-block}
+.primary{background:linear-gradient(110deg,#0799b9,#7857db);color:white;border:0;font-weight:bold}
+.hero{text-align:center;padding:85px 5%;background:radial-gradient(ellipse at 20% 20%,#5144b566,transparent 45%),radial-gradient(ellipse at 80% 70%,#00b8d344,transparent 40%),var(--bg)}
+.eyebrow{color:var(--accent);letter-spacing:3px;font-size:12px;font-weight:800}
+h1{font-size:clamp(39px,8vw,75px);line-height:1.1;margin:20px auto;max-width:850px}
+.gradient{background:linear-gradient(90deg,var(--accent),var(--purple),#f5a8e1);color:transparent;background-clip:text}
+.hero p{max-width:700px;margin:0 auto 25px;color:var(--muted)}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.wrap{width:min(1100px,92%);margin:auto}
+section{padding:55px 0}
+.heading{text-align:center;margin-bottom:27px}
+.heading h2{font-size:clamp(27px,5vw,40px);margin:5px}
+.heading p,.muted{color:var(--muted)}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.field{width:100%;min-width:0;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--text)}
+.toolbar .field{flex:1;min-width:180px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:21px;min-width:0}
+.card h3{margin:7px 0}.card p{color:var(--muted)}
+.emoji{font-size:36px}.tag{font-size:10px;letter-spacing:1px;color:var(--accent);font-weight:bold}
+.cardactions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.band{background:color-mix(in srgb,var(--panel) 60%,transparent);border-block:1px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stat{text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:17px}
+.stat strong{display:block;font-size:26px;color:var(--accent)}
+.stat span{font-size:12px;color:var(--muted)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.answer{display:block;width:100%;text-align:left;margin:8px 0;background:var(--bg)}
+.answer:disabled{opacity:.85}
+.status{color:var(--accent);min-height:24px}
+.progress{height:8px;background:var(--bg);border-radius:10px;overflow:hidden}
+.progress span{height:100%;display:block;background:linear-gradient(90deg,#0ab8ca,#a17aff);width:0}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.row>*{flex:1}
+.item{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:10px;border-bottom:1px solid var(--line)}th{color:var(--accent)}
+.calcgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.calcgrid button{padding:13px 3px}
+footer{text-align:center;padding:32px 15px;border-top:1px solid var(--line);color:var(--muted)}
+footer strong{color:var(--accent)}
+.hidden{display:none!important}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.split{grid-template-columns:1fr}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.hero{padding:65px 5%}nav{gap:10px}section{padding:42px 0}}
 </style>
 </head>
 <body>
 <header>
-  <a class="logo" href="#home">LISAN <span>GAMING X</span></a>
-  <nav aria-label="Main navigation">
-    <a href="#games">Games</a>
-    <a href="#account">Account</a>
-    <a href="#leaderboard">Leaderboard</a>
-    <a href="#tournaments">Tournaments</a>
-  </nav>
+<div class="nav">
+<a class="brand" href="#home">🌌 EDUCATIONAL <span>GALAXY</span></a>
+<nav>
+<a href="#explore">Explore</a><a href="#space">Space</a><a href="#evolution">Evolution</a><a href="#science">Science</a><a href="#tools">Tools</a><a href="#quiz">Quiz</a><a href="#notes">Notes</a>
+<button id="theme">🌙</button><button id="language">বাংলা</button>
+</nav>
+</div>
 </header>
 
-<main id="home">
-  <section class="hero">
-    <div class="eyebrow">YOUR ESPORTS ARENA</div>
-    <h1>PLAY HARD.<br><span>LEVEL UP.</span></h1>
-    <p>
-      Welcome to LISAN GAMING X. Play browser mini-games,
-      build your player profile, earn demo XP and explore community tournaments.
-    </p>
-    <div class="hero-actions">
-      <a class="btn" href="#games">EXPLORE GAMES</a>
-      <a class="btn secondary" href="#account">PLAYER ACCOUNT</a>
-    </div>
-    <div class="statgrid">
-      <div class="stat"><b>02</b><small>MINI GAMES</small></div>
-      <div class="stat"><b>24/7</b><small>WEB ACCESS*</small></div>
-      <div class="stat"><b>GX</b><small>GAMING COMMUNITY</small></div>
-    </div>
-    <p class="notice">*Website access depends on hosting and service availability.</p>
-  </section>
+<main>
+<section class="hero" id="home">
+<div class="eyebrow">DISCOVER • EXPLORE • LEARN</div>
+<h1 id="heroTitle">Your Universe of <span class="gradient">Knowledge</span></h1>
+<p id="heroText">Explore space, human evolution, science, dinosaurs, ancient history and the wonders of our planet. Learn with interactive tools, quizzes and study activities.</p>
+<div class="actions"><a class="btn primary" href="#explore">Start Exploring 🚀</a><a class="btn" href="#quiz">Take a Quiz 🧠</a></div>
+</section>
 
-  <section class="panel" id="account">
-    <h2>👤 PLAYER ACCOUNT</h2>
-    <p class="muted">Create an account or sign in to access your online profile.</p>
-    <div id="accountStatus" class="notice" aria-live="polite">
-      Checking account status...
-    </div>
+<section id="dashboard">
+<div class="wrap">
+<div class="heading"><div class="eyebrow">YOUR JOURNEY</div><h2>My Learning Dashboard</h2><p>Your learning data is saved in this browser.</p></div>
+<div class="stats">
+<div class="stat"><strong id="xp">0</strong><span>⭐ XP Points</span></div>
+<div class="stat"><strong id="correct">0</strong><span>🧠 Correct Answers</span></div>
+<div class="stat"><strong id="savedCount">0</strong><span>🔖 Bookmarks</span></div>
+<div class="stat"><strong id="notesCount">0</strong><span>📝 Notes</span></div>
+</div>
+<div class="card" style="margin-top:15px">
+<div class="row"><div><b>Daily learning goal</b><p class="muted">Choose a study target in minutes.</p></div><select class="field" id="goal"><option>10</option><option selected>20</option><option>30</option><option>45</option><option>60</option></select></div>
+<div class="progress"><span id="goalBar"></span></div><p class="muted" id="goalText">0 / 20 minutes today</p>
+</div>
+</div>
+</section>
 
-    <div id="authForms" class="grid">
-      <form id="signupForm">
-        <h3>Create Account</h3>
-        <label for="signupName">Player name</label>
-        <input id="signupName" maxlength="24" required
-          autocomplete="nickname" placeholder="Your gaming name">
-        <label for="signupEmail">Email address</label>
-        <input id="signupEmail" type="email" required
-          autocomplete="email" placeholder="you@example.com">
-        <label for="signupPassword">Password (at least 8 characters)</label>
-        <input id="signupPassword" type="password" required minlength="8"
-          autocomplete="new-password" placeholder="Create a password">
-        <button class="btn" type="submit">CREATE ACCOUNT</button>
-      </form>
+<section id="explore" class="band">
+<div class="wrap">
+<div class="heading"><div class="eyebrow">LEARNING LIBRARY</div><h2>Explore the Galaxy</h2><p>Search topics and filter by subject.</p></div>
+<div class="toolbar">
+<input class="field" id="search" placeholder="🔎 Search topics...">
+<select class="field" id="category"><option value="all">All categories</option><option>Space</option><option>Science</option><option>Life</option><option>Earth</option><option>History</option><option>Technology</option></select>
+<select class="field" id="sort"><option value="default">Default order</option><option value="az">Title A–Z</option></select>
+</div>
+<div class="grid" id="topics">
+<article class="card topic" data-cat="Space" data-words="solar system planets astronomy sun moon"><div class="emoji">🪐</div><div class="tag">ASTRONOMY</div><h3>Solar System</h3><p>Explore the Sun, eight planets, moons and dwarf planets.</p><div class="cardactions"><a class="btn primary" href="#space">Explore</a><button class="save" data-id="Solar System">☆ Save</button></div></article>
+<article class="card topic" data-cat="Space" data-words="galaxy stars nebula milky way universe"><div class="emoji">🌌</div><div class="tag">COSMOS</div><h3>Galaxies & Stars</h3><p>Discover stars, nebulae and the Milky Way galaxy.</p><div class="cardactions"><a class="btn primary" href="#space">Explore</a><button class="save" data-id="Galaxies & Stars">☆ Save</button></div></article>
+<article class="card topic" data-cat="Life" data-words="human evolution fossils ancestors dna"><div class="emoji">🧬</div><div class="tag">HUMAN ORIGINS</div><h3>Human Evolution</h3><p>Understand fossils, genetics and our shared ancestry.</p><div class="cardactions"><a class="btn primary" href="#evolution">Explore</a><button class="save" data-id="Human Evolution">☆ Save</button></div></article>
+<article class="card topic" data-cat="Science" data-words="physics energy force motion light"><div class="emoji">⚛️</div><div class="tag">SCIENCE</div><h3>Physics</h3><p>Learn about forces, motion, energy, waves and light.</p><div class="cardactions"><a class="btn primary" href="#science">Explore</a><button class="save" data-id="Physics">☆ Save</button></div></article>
+<article class="card topic" data-cat="Science" data-words="chemistry elements atoms molecules periodic table"><div class="emoji">🧪</div><div class="tag">SCIENCE</div><h3>Chemistry</h3><p>Explore atoms, elements, compounds and reactions.</p><div class="cardactions"><a class="btn primary" href="#science">Explore</a><button class="save" data-id="Chemistry">☆ Save</button></div></article>
+<article class="card topic" data-cat="Science" data-words="biology cells plants animals organisms"><div class="emoji">🌱</div><div class="tag">SCIENCE</div><h3>Biology</h3><p>Discover cells, organisms, ecosystems and life.</p><div class="cardactions"><a class="btn primary" href="#science">Explore</a><button class="save" data-id="Biology">☆ Save</button></div></article>
+<article class="card topic" data-cat="Earth" data-words="earth oceans climate environment nature"><div class="emoji">🌍</div><div class="tag">OUR PLANET</div><h3>Planet Earth</h3><p>Study oceans, climate, continents and biodiversity.</p><div class="cardactions"><a class="btn primary" href="#earth">Explore</a><button class="save" data-id="Planet Earth">☆ Save</button></div></article>
+<article class="card topic" data-cat="Life" data-words="dinosaurs prehistoric fossils jurassic"><div class="emoji">🦕</div><div class="tag">PREHISTORY</div><h3>Dinosaurs</h3><p>Travel back to the Mesozoic Era and ancient life.</p><div class="cardactions"><a class="btn primary" href="#dinosaurs">Explore</a><button class="save" data-id="Dinosaurs">☆ Save</button></div></article>
+<article class="card topic" data-cat="History" data-words="ancient civilizations egypt indus mesopotamia"><div class="emoji">🏛️</div><div class="tag">HISTORY</div><h3>Ancient Civilizations</h3><p>Discover early cities, writing, trade and culture.</p><div class="cardactions"><a class="btn primary" href="#history">Explore</a><button class="save" data-id="Ancient Civilizations">☆ Save</button></div></article>
+<article class="card topic" data-cat="Technology" data-words="coding computer robotics ai artificial intelligence"><div class="emoji">🤖</div><div class="tag">INNOVATION</div><h3>Future Technology</h3><p>Explore coding, robotics, computers and AI.</p><div class="cardactions"><a class="btn primary" href="#technology">Explore</a><button class="save" data-id="Future Technology">☆ Save</button></div></article>
+<article class="card topic" data-cat="Space" data-words="black holes gravity relativity"><div class="emoji">🕳️</div><div class="tag">ASTROPHYSICS</div><h3>Black Holes</h3><p>Learn about regions where gravity prevents light from escaping.</p><div class="cardactions"><a class="btn primary" href="#space">Explore</a><button class="save" data-id="Black Holes">☆ Save</button></div></article>
+<article class="card topic" data-cat="Earth" data-words="weather water cycle geology clouds"><div class="emoji">🌦️</div><div class="tag">EARTH SCIENCE</div><h3>Weather & Water</h3><p>Discover clouds, the water cycle, rocks and weather.</p><div class="cardactions"><a class="btn primary" href="#earth">Explore</a><button class="save" data-id="Weather & Water">☆ Save</button></div></article>
+</div>
+<p id="noResults" class="muted hidden">No topics found. Try a different search.</p>
+</div>
+</section>
 
-      <form id="loginForm">
-        <h3>Sign In</h3>
-        <label for="loginEmail">Email address</label>
-        <input id="loginEmail" type="email" required
-          autocomplete="email" placeholder="you@example.com">
-        <label for="loginPassword">Password</label>
-        <input id="loginPassword" type="password" required
-          autocomplete="current-password" placeholder="Your password">
-        <button class="btn" type="submit">LOGIN</button>
-      </form>
-    </div>
+<section id="space">
+<div class="wrap">
+<div class="heading"><div class="eyebrow">BEYOND OUR WORLD</div><h2>🚀 Space Explorer</h2><p>Select a planet to learn a fact.</p></div>
+<div class="grid">
+<article class="card"><div class="emoji">☿️</div><h3>Mercury</h3><p>Smallest planet and closest to the Sun.</p><button class="fact" data-fact="Mercury completes one orbit around the Sun in about 88 Earth days.">Discover fact</button></article>
+<article class="card"><div class="emoji">♀️</div><h3>Venus</h3><p>A rocky world with an extremely hot surface.</p><button class="fact" data-fact="Venus rotates very slowly and in the opposite direction to most planets.">Discover fact</button></article>
+<article class="card"><div class="emoji">🌍</div><h3>Earth</h3><p>Our home planet, with abundant surface liquid water.</p><button class="fact" data-fact="Earth is the only world currently known to support life.">Discover fact</button></article>
+<article class="card"><div class="emoji">🔴</div><h3>Mars</h3><p>A cold, rocky world with a reddish surface.</p><button class="fact" data-fact="Mars has Olympus Mons, the largest known volcano in the Solar System.">Discover fact</button></article>
+<article class="card"><div class="emoji">🟠</div><h3>Jupiter</h3><p>The largest planet in our Solar System.</p><button class="fact" data-fact="Jupiter is a gas giant with a powerful magnetic field.">Discover fact</button></article>
+<article class="card"><div class="emoji">🪐</div><h3>Saturn</h3><p>Famous for its extensive ring system.</p><button class="fact" data-fact="Saturn's rings contain countless pieces of ice and rocky material.">Discover fact</button></article>
+<article class="card"><div class="emoji">🔵</div><h3>Uranus</h3><p>An ice giant with a strongly tilted axis.</p><button class="fact" data-fact="Methane in Uranus's atmosphere absorbs red light, contributing to its blue-green appearance.">Discover fact</button></article>
+<article class="card"><div class="emoji">🔷</div><h3>Neptune</h3><p>A distant ice giant with very fast winds.</p><button class="fact" data-fact="Neptune takes about 165 Earth years to orbit the Sun.">Discover fact</button></article>
+<article class="card"><div class="emoji">🌙</div><h3>Our Moon</h3><p>Earth's natural satellite.</p><button class="fact" data-fact="The Moon's gravity contributes to ocean tides on Earth.">Discover fact</button></article>
+</div>
+<div class="card" style="margin-top:15px" id="planetFact">Choose a planet to reveal a fact.</div>
+</div>
+</section>
 
-    <div id="loggedIn" hidden>
-      <div class="row">
-        <span>Signed in as</span>
-        <b id="playerEmail"></b>
-      </div>
-      <label for="profileName">Display name</label>
-      <input id="profileName" maxlength="24" placeholder="Player name">
-      <div class="hero-actions">
-        <button class="btn secondary" id="saveProfile" type="button">SAVE PROFILE</button>
-        <button class="btn danger" id="logout" type="button">LOG OUT</button>
-      </div>
-      <div class="statgrid">
-        <div class="stat"><b id="playerXP">0</b><small>ONLINE XP</small></div>
-        <div class="stat"><b id="playerLevel">1</b><small>LEVEL</small></div>
-        <div class="stat"><b id="playerRank">—</b><small>GLOBAL RANK*</small></div>
-      </div>
-      <p class="notice">
-        XP is demo XP and is not a verified competitive result.
-        Rank is calculated from the first 500 profile records.
-      </p>
-    </div>
-  </section>
+<section id="evolution" class="band">
+<div class="wrap"><div class="heading"><div class="eyebrow">OUR SHARED STORY</div><h2>🧬 Human Evolution Lab</h2></div>
+<div class="grid">
+<article class="card"><div class="emoji">🦴</div><h3>Fossils</h3><p>Fossils preserve evidence of ancient life. Bones, teeth and footprints help researchers investigate the past.</p></article>
+<article class="card"><div class="emoji">🧬</div><h3>DNA & Genetics</h3><p>DNA carries inherited biological information. Comparing genomes helps scientists study evolutionary relationships.</p></article>
+<article class="card"><div class="emoji">🌍</div><h3>Human Origins</h3><p>Homo sapiens evolved in Africa and later spread around the world.</p></article>
+</div>
+<div class="card" style="margin-top:15px"><h3>Evolution Timeline</h3><p><b>Early hominins:</b> Several species show adaptations for upright walking.</p><p><b>Genus Homo:</b> Different human relatives used tools and adapted to changing environments.</p><p><b>Homo sapiens:</b> Our species arose in Africa roughly 300,000 years ago, based on current evidence.</p></div>
+</div></section>
 
-  <section id="games" class="panel">
-    <h2>🎮 MINI GAME ARCADE</h2>
-    <p class="muted">
-      Play simple browser games. Sign in to save demo XP to your profile.
-    </p>
-    <div class="grid">
-      <article class="game">
-        <h3>🎲 Lucky Dice</h3>
-        <p>Roll a virtual six-sided dice. Your result is generated in the browser.</p>
-        <button class="btn" id="dice" type="button">ROLL DICE</button>
-        <p id="diceResult" class="notice" aria-live="polite">Ready to roll.</p>
-      </article>
-      <article class="game">
-        <h3>🎯 Target Challenge</h3>
-        <p>Try the demo target challenge and receive a fixed demo XP award.</p>
-        <button class="btn" id="target" type="button">HIT TARGET</button>
-        <p id="targetResult" class="notice" aria-live="polite">Target ready.</p>
-      </article>
-    </div>
-    <p class="notice">
-      Demo game only: XP can be requested repeatedly. Do not use it for prizes,
-      paid matches or competitive rankings.
-    </p>
-  </section>
+<section id="science">
+<div class="wrap"><div class="heading"><div class="eyebrow">ASK • TEST • DISCOVER</div><h2>🔬 Science Lab</h2></div>
+<div class="grid">
+<article class="card"><div class="emoji">⚛️</div><h3>Physics</h3><p>Physics studies matter, energy, motion, forces, waves and light.</p></article>
+<article class="card"><div class="emoji">🧪</div><h3>Chemistry</h3><p>Chemistry explores substances, their properties and how they react.</p></article>
+<article class="card"><div class="emoji">🌿</div><h3>Biology</h3><p>Biology studies organisms, cells, ecosystems and biodiversity.</p></article>
+<article class="card"><div class="emoji">🔋</div><h3>Energy</h3><p>Energy transfers or changes form; total energy is conserved in a closed system.</p></article>
+<article class="card"><div class="emoji">💧</div><h3>Water Cycle</h3><p>Evaporation, condensation and precipitation move water through Earth's systems.</p></article>
+<article class="card"><div class="emoji">🔭</div><h3>Astronomy</h3><p>Astronomy studies planets, stars, galaxies and the universe.</p></article>
+</div></div></section>
 
-  <section id="leaderboard" class="panel">
-    <div class="section-head">
-      <h2>🏆 ONLINE LEADERBOARD</h2>
-      <button class="btn secondary" id="refreshBoard" type="button">REFRESH</button>
-    </div>
-    <p class="muted">Displays public profile names and XP from your Supabase project.</p>
-    <div id="board" aria-live="polite">Loading leaderboard...</div>
-  </section>
+<section id="earth" class="band"><div class="wrap"><div class="heading"><h2>🌍 Our Amazing Earth</h2></div><div class="grid">
+<article class="card"><h3>🌊 Oceans</h3><p>Oceans regulate climate and support many ecosystems.</p></article>
+<article class="card"><h3>🌳 Biodiversity</h3><p>Protecting habitats and reducing pollution helps conserve life.</p></article>
+<article class="card"><h3>🌦️ Climate</h3><p>Climate describes long-term patterns of temperature and precipitation.</p></article>
+</div></div></section>
 
-  <section id="tournaments" class="panel">
-    <h2>🏅 TOURNAMENT HUB</h2>
-    <p class="muted">
-      Register for listed community events. Registration does not host matches
-      or guarantee prizes.
-    </p>
-    <div id="tournamentList" aria-live="polite">Loading tournaments...</div>
-  </section>
+<section id="dinosaurs"><div class="wrap"><div class="heading"><h2>🦕 Prehistoric World</h2></div><div class="grid">
+<article class="card"><h3>Triassic</h3><p>The first dinosaurs appeared over 230 million years ago.</p></article>
+<article class="card"><h3>Jurassic</h3><p>Dinosaurs diversified, including many large sauropods and theropods.</p></article>
+<article class="card"><h3>Cretaceous</h3><p>Many non-bird dinosaurs disappeared about 66 million years ago; birds survived as dinosaur descendants.</p></article>
+</div></div></section>
 
-  <section class="panel" id="system">
-    <h2>🔐 SYSTEM STATUS</h2>
-    <p id="backendStatus" class="notice">Checking configuration...</p>
-    <p class="notice">
-      Never place a Supabase service_role key, database password or private
-      server secret in this HTML file. Only use your project's public
-      publishable/anon key with appropriate Row Level Security policies.
-    </p>
-  </section>
+<section id="history" class="band"><div class="wrap"><div class="heading"><h2>🏛️ Ancient Civilizations</h2></div><div class="grid">
+<article class="card"><h3>Ancient Egypt</h3><p>The Nile supported farming, cities, monumental architecture and a long-lasting civilization.</p></article>
+<article class="card"><h3>Indus Civilization</h3><p>Harappa and Mohenjo-daro are known for planned streets and sophisticated drainage.</p></article>
+<article class="card"><h3>Mesopotamia</h3><p>Early cities between the Tigris and Euphrates developed complex administration and writing.</p></article>
+</div></div></section>
+
+<section id="technology"><div class="wrap"><div class="heading"><h2>🤖 Future Technology</h2></div><div class="grid">
+<article class="card"><h3>Web Development</h3><p>HTML structures pages, CSS styles them and JavaScript adds interactivity.</p></article>
+<article class="card"><h3>Robotics</h3><p>Robotics combines mechanics, electronics and programming to create useful machines.</p></article>
+<article class="card"><h3>Artificial Intelligence</h3><p>AI can recognise patterns and generate content. Important information should be verified.</p></article>
+</div></div></section>
+
+<section id="quiz" class="band"><div class="wrap"><div class="heading"><div class="eyebrow">TEST YOUR KNOWLEDGE</div><h2>🧠 Galaxy Quiz</h2><p>Correct answers earn 10 XP.</p></div>
+<div class="split"><div class="card"><p class="muted" id="qProgress">Question 1</p><div class="progress"><span id="qBar"></span></div><h3 id="question">Loading...</h3><div id="answers"></div><p id="feedback" class="status" aria-live="polite"></p><button class="primary" id="next" disabled>Next Question →</button> <button id="restart">Restart</button><p class="muted" id="roundScore"></p></div>
+<div class="card"><h3>🏆 Achievements</h3><div id="achievements"></div><hr style="border-color:var(--line)"><h3>💡 Study Tip</h3><p>Try explaining what you learned in your own words. Regular short sessions can help memory.</p><button id="readTip">🔊 Read tip aloud</button></div></div>
+</div></section>
+
+<section id="tools"><div class="wrap"><div class="heading"><div class="eyebrow">DIGITAL TOOLBOX</div><h2>🧰 Learning Tools</h2></div>
+<div class="grid">
+<div class="card"><h3>⏱️ Study Timer</h3><select class="field" id="timerLength"><option value="300">5 minutes</option><option value="600">10 minutes</option><option value="900">15 minutes</option><option value="1200" selected>20 minutes</option><option value="1500">25 minutes</option><option value="1800">30 minutes</option></select><h2 id="timerDisplay" style="text-align:center">20:00</h2><div class="row"><button class="primary" id="timerStart">Start</button><button id="timerPause">Pause</button><button id="timerReset">Reset</button></div><p class="status" id="timerStatus"></p></div>
+<div class="card"><h3>📝 My Notes</h3><input class="field" id="noteTitle" placeholder="Note title"><textarea class="field" id="noteBody" rows="4" placeholder="Write your notes..." style="margin-top:8px"></textarea><div class="row"><button class="primary" id="saveNote">Save note</button><button id="exportNotes">Export notes</button></div><div id="notesList"></div></div>
+<div class="card"><h3>🗂️ Flashcards</h3><div class="card" id="flashcard">What is the closest star to Earth?</div><div class="row"><button class="primary" id="flip">Show answer</button><button id="flashNext">Next</button></div><p class="muted" id="flashCount"></p></div>
+<div class="card"><h3>🧮 Calculator</h3><input class="field" id="display" value="0" readonly><div class="calcgrid" id="calcGrid" style="margin-top:8px"></div></div>
+<div class="card"><h3>🔄 Unit Converter</h3><input class="field" id="unitValue" type="number" value="1"><select class="field" id="unitType" style="margin-top:8px"><option value="km">Kilometres → Miles</option><option value="mi">Miles → Kilometres</option><option value="c">Celsius → Fahrenheit</option><option value="f">Fahrenheit → Celsius</option><option value="kg">Kilograms → Pounds</option><option value="m">Metres → Feet</option></select><p class="status" id="unitResult"></p></div>
+<div class="card"><h3>🔊 Read Text Aloud</h3><textarea class="field" id="readText" rows="3" placeholder="Enter text to read..."></textarea><div class="row"><button class="primary" id="speak">Read aloud</button><button id="stopSpeak">Stop</button></div><p class="muted" id="speechStatus"></p></div>
+</div></div></section>
+
+<section id="notes" class="band"><div class="wrap"><div class="heading"><div class="eyebrow">SAVED FOR LATER</div><h2>🔖 My Bookmarks</h2></div><div class="card"><div id="bookmarks"></div><div class="row" style="margin-top:15px"><button id="exportData">Export backup</button><button id="importData">Import backup</button><input id="importFile" class="hidden" type="file" accept=".json,application/json"><button id="resetData">Reset local data</button></div><p class="muted">Data stays in this browser. This demo has no online account or cloud database.</p></div></div></section>
+
+<section id="glossary"><div class="wrap"><div class="heading"><h2>📘 Science Glossary</h2></div><input class="field" id="glossSearch" placeholder="Search terms..."><div class="card tablewrap" style="margin-top:12px"><table><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody id="glossary"></tbody></table></div></div></section>
+
+<section id="daily" class="band"><div class="wrap"><div class="heading"><h2>✨ Daily Challenge</h2></div><div class="card"><div class="emoji">💡</div><h3 id="challengeTitle">Space Detective</h3><p id="challengeText">Learn one new fact about a planet.</p><button class="primary" id="completeChallenge">Complete (+10 XP)</button><button id="newChallenge">Another challenge</button><p id="challengeStatus" class="status"></p></div></div></section>
+
+<section id="settings"><div class="wrap"><div class="heading"><h2>⚙️ Settings & Accessibility</h2></div><div class="grid">
+<div class="card"><h3>Reading size</h3><div class="row"><button id="smaller">A− Smaller</button><button id="larger">A+ Larger</button><button id="fontReset">Reset</button></div></div>
+<div class="card"><h3>Print / Save PDF</h3><p class="muted">Open your browser's print menu to print this page or save it as PDF.</p><button class="primary" id="print">🖨️ Print page</button></div>
+<div class="card"><h3>Study goals</h3><p>Choose a topic, read a section, answer a quiz question and record one new idea in your notes.</p><a class="btn" href="#quiz">Start learning</a></div>
+</div></div></section>
 </main>
 
-<footer>
-  <h2>LISAN GAMING X</h2>
-  <p>Made with ❤️ by Lisan Sarkar</p>
-  <p>Independent gaming frontend project · <span id="year"></span></p>
-  <p><a href="#home">Back to top ↑</a></p>
-</footer>
+<footer><div class="brand">🌌 EDUCATIONAL <span>GALAXY</span></div><p>Explore the universe. Expand your mind. Keep learning.</p><p><strong>Made by Lisan Sarkar</strong></p><small>© <span id="year"></span> Educational Galaxy · Educational resource</small></footer>
 
-<div id="message" role="status" aria-live="polite"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 "use strict";
-
-/*
-  CONFIGURATION:
-  1. Copy your Project URL from Supabase project settings.
-  2. Copy the public publishable key (or legacy anon key).
-  3. Never paste a service_role/secret key here.
-*/
-const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
-const SUPABASE_KEY = "YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY";
-
-let db = null;
-let currentUser = null;
-let currentProfile = null;
-let messageTimer = null;
-
-const $ = id => document.getElementById(id);
-
-function notify(message, type = "info") {
-  const el = $("message");
-  el.textContent = String(message);
-  el.dataset.type = type;
-  el.style.display = "block";
-  clearTimeout(messageTimer);
-  messageTimer = setTimeout(() => {
-    el.style.display = "none";
-  }, 4500);
-}
-
-function configured() {
-  return SUPABASE_URL.startsWith("https://") &&
-    !SUPABASE_URL.includes("YOUR_SUPABASE") &&
-    SUPABASE_KEY.length > 20 &&
-    !SUPABASE_KEY.includes("YOUR_SUPABASE");
-}
-
-function setSignedIn(signedIn) {
-  $("authForms").hidden = signedIn;
-  $("loggedIn").hidden = !signedIn;
-  $("accountStatus").textContent = signedIn
-    ? "Your account is connected."
-    : "Sign in or create a new account.";
-  $("playerEmail").textContent = signedIn
-    ? (currentUser.email || "Signed-in player")
-    : "";
-}
-
-function setBusy(button, busy, busyText) {
-  if (busy) {
-    button.dataset.originalText = button.textContent;
-    button.disabled = true;
-    button.textContent = busyText || "PLEASE WAIT...";
-  } else {
-    button.disabled = false;
-    if (button.dataset.originalText) {
-      button.textContent = button.dataset.originalText;
-      delete button.dataset.originalText;
-    }
-  }
-}
-
-function showError(error, fallback) {
-  console.error(fallback, error);
-  notify(error?.message || fallback, "error");
-}
-
-async function refreshProfile() {
-  if (!currentUser || !db) return;
-
-  const { data, error } = await db
-    .from("profiles")
-    .select("id,username,xp")
-    .eq("id", currentUser.id)
-    .maybeSingle();
-
-  if (error) throw error;
-
-  if (!data) {
-    currentProfile = null;
-    $("profileName").value = "";
-    $("playerXP").textContent = "0";
-    $("playerLevel").textContent = "1";
-    $("playerRank").textContent = "—";
-    return;
-  }
-
-  currentProfile = data;
-  $("profileName").value = data.username;
-  $("playerXP").textContent = String(data.xp);
-  $("playerLevel").textContent = String(Math.floor(data.xp / 100) + 1);
-
-  const { data: topProfiles, error: rankError } = await db
-    .from("profiles")
-    .select("id,xp")
-    .order("xp", { ascending: false })
-    .order("id", { ascending: true })
-    .limit(500);
-
-  if (!rankError && topProfiles) {
-    const index = topProfiles.findIndex(p => p.id === currentUser.id);
-    $("playerRank").textContent = index >= 0 ? "#" + (index + 1) : "500+";
-  }
-}
-
-async function refreshLeaderboard() {
-  $("board").textContent = "Loading leaderboard...";
-
-  const { data, error } = await db
-    .from("profiles")
-    .select("username,xp")
-    .order("xp", { ascending: false })
-    .order("username", { ascending: true })
-    .limit(20);
-
-  if (error) {
-    $("board").textContent = "Could not load leaderboard.";
-    throw error;
-  }
-
-  $("board").replaceChildren();
-
-  if (!data || data.length === 0) {
-    $("board").textContent = "No players yet. Create an account to get started.";
-    return;
-  }
-
-  data.forEach((player, index) => {
-    const row = document.createElement("div");
-    row.className = "row";
-
-    const name = document.createElement("span");
-    name.textContent = (index + 1) + ". " + player.username;
-
-    const xp = document.createElement("b");
-    xp.style.color = "#ff6977";
-    xp.textContent = player.xp + " XP";
-
-    row.append(name, xp);
-    $("board").appendChild(row);
-  });
-}
-
-async function refreshTournaments() {
-  $("tournamentList").textContent = "Loading tournaments...";
-
-  const { data, error } = await db
-    .from("tournaments")
-    .select("id,title,description,status")
-    .order("id", { ascending: true });
-
-  if (error) {
-    $("tournamentList").textContent = "Could not load tournaments.";
-    throw error;
-  }
-
-  $("tournamentList").replaceChildren();
-
-  if (!data || data.length === 0) {
-    $("tournamentList").textContent =
-      "No tournaments available yet. Add one using a trusted admin process.";
-    return;
-  }
-
-  data.forEach(tournament => {
-    const row = document.createElement("div");
-    row.className = "row";
-
-    const info = document.createElement("div");
-    info.className = "row-info";
-
-    const title = document.createElement("b");
-    title.textContent = tournament.title;
-
-    const description = document.createElement("p");
-    description.className = "notice";
-    description.textContent = tournament.description || "";
-
-    const status = document.createElement("span");
-    status.className = "badge" +
-      (tournament.status === "open" ? " green" : "");
-    status.textContent = tournament.status.toUpperCase();
-
-    info.append(title, description, status);
-
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "btn";
-    button.textContent = "REGISTER";
-    button.disabled = tournament.status !== "open";
-    button.addEventListener("click", () => registerTournament(tournament, button));
-
-    row.append(info, button);
-    $("tournamentList").appendChild(row);
-  });
-}
-
-async function registerTournament(tournament, button) {
-  if (!currentUser) {
-    notify("Please sign in before registering.");
-    $("account").scrollIntoView({ behavior: "smooth" });
-    return;
-  }
-
-  if (tournament.status !== "open") {
-    notify("This tournament is closed.", "error");
-    return;
-  }
-
-  setBusy(button, true, "REGISTERING...");
-
-  try {
-    const { error } = await db.from("tournament_entries").insert({
-      tournament_id: tournament.id,
-      user_id: currentUser.id
-    });
-
-    if (error) {
-      if (error.code === "23505") {
-        notify("You are already registered.");
-      } else {
-        showError(error, "Registration failed.");
-      }
-      return;
-    }
-
-    notify("Demo registration saved successfully.", "success");
-  } catch (error) {
-    showError(error, "Registration failed.");
-  } finally {
-    setBusy(button, false);
-  }
-}
-
-async function awardXP(points) {
-  if (!currentUser) {
-    notify("Please sign in first.");
-    $("account").scrollIntoView({ behavior: "smooth" });
-    return false;
-  }
-
-  try {
-    const { data, error } = await db.rpc("award_demo_xp", { points });
-    if (error) throw error;
-
-    await refreshProfile();
-    await refreshLeaderboard();
-    notify("You earned " + points + " demo XP!", "success");
-    return true;
-  } catch (error) {
-    showError(error, "Could not award demo XP.");
-    return false;
-  }
-}
-
-$("signupForm").addEventListener("submit", async event => {
-  event.preventDefault();
-  if (!db) return notify("Backend is not configured.", "error");
-
-  const button = event.submitter;
-  const username = $("signupName").value.trim();
-  const email = $("signupEmail").value.trim();
-  const password = $("signupPassword").value;
-
-  if (!username || username.length > 24 || password.length < 8) {
-    return notify("Check your name and password.", "error");
-  }
-
-  setBusy(button, true, "CREATING...");
-
-  try {
-    const { data, error } = await db.auth.signUp({
-      email,
-      password,
-      options: { data: { username } }
-    });
-
-    if (error) throw error;
-
-    if (data.session && data.user) {
-      currentUser = data.user;
-      setSignedIn(true);
-      await refreshProfile();
-      await refreshLeaderboard();
-      notify("Account created successfully.", "success");
-    } else {
-      notify(
-        "Sign-up submitted. Check your email to confirm your account, then sign in.",
-        "success"
-      );
-    }
-  } catch (error) {
-    showError(error, "Account creation failed.");
-  } finally {
-    setBusy(button, false);
-  }
-});
-
-$("loginForm").addEventListener("submit", async event => {
-  event.preventDefault();
-  if (!db) return notify("Backend is not configured.", "error");
-
-  const button = event.submitter;
-  setBusy(button, true, "SIGNING IN...");
-
-  try {
-    const { data, error } = await db.auth.signInWithPassword({
-      email: $("loginEmail").value.trim(),
-      password: $("loginPassword").value
-    });
-
-    if (error) throw error;
-
-    currentUser = data.user;
-    setSignedIn(true);
-    await refreshProfile();
-    await refreshLeaderboard();
-    notify("Welcome back!", "success");
-  } catch (error) {
-    showError(error, "Sign-in failed.");
-  } finally {
-    setBusy(button, false);
-  }
-});
-
-$("logout").addEventListener("click", async () => {
-  if (!db) return;
-
-  try {
-    const { error } = await db.auth.signOut();
-    if (error) throw error;
-
-    currentUser = null;
-    currentProfile = null;
-    setSignedIn(false);
-    $("playerXP").textContent = "0";
-    $("playerLevel").textContent = "1";
-    $("playerRank").textContent = "—";
-    notify("Signed out successfully.", "success");
-  } catch (error) {
-    showError(error, "Sign-out failed.");
-  }
-});
-
-$("saveProfile").addEventListener("click", async () => {
-  if (!currentUser) return notify("Sign in first.", "error");
-
-  const username = $("profileName").value.trim();
-  if (!username || username.length > 24) {
-    return notify("Name must be 1–24 characters.", "error");
-  }
-
-  const button = $("saveProfile");
-  setBusy(button, true, "SAVING...");
-
-  try {
-    const { error } = await db.from("profiles")
-      .update({ username })
-      .eq("id", currentUser.id);
-
-    if (error) throw error;
-
-    await refreshProfile();
-    await refreshLeaderboard();
-    notify("Profile saved.", "success");
-  } catch (error) {
-    showError(error, "Profile update failed.");
-  } finally {
-    setBusy(button, false);
-  }
-});
-
-$("dice").addEventListener("click", async () => {
-  const roll = 1 + Math.floor(Math.random() * 6);
-  $("diceResult").textContent = "You rolled " + roll + "!";
-  await awardXP(roll * 2);
-});
-
-$("target").addEventListener("click", async () => {
-  $("targetResult").textContent = "Target hit! Demo challenge complete.";
-  await awardXP(10);
-});
-
-$("refreshBoard").addEventListener("click", async () => {
-  const button = $("refreshBoard");
-  setBusy(button, true, "REFRESHING...");
-  try {
-    await refreshLeaderboard();
-    notify("Leaderboard refreshed.", "success");
-  } catch (error) {
-    showError(error, "Leaderboard refresh failed.");
-  } finally {
-    setBusy(button, false);
-  }
-});
-
-async function start() {
-  $("year").textContent = String(new Date().getFullYear());
-
-  if (!configured()) {
-    $("backendStatus").textContent =
-      "Not configured. Add your Supabase project URL and public key in the script.";
-    $("accountStatus").textContent =
-      "Connect Supabase before using signup, login or online features.";
-    $("board").textContent = "Connect Supabase to load online players.";
-    $("tournamentList").textContent = "Connect Supabase to load tournaments.";
-    return;
-  }
-
-  if (!window.supabase) {
-    $("backendStatus").textContent =
-      "Supabase SDK failed to load. Check your internet connection.";
-    return;
-  }
-
-  try {
-    db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-    $("backendStatus").textContent =
-      "Supabase client initialized. Checking database access...";
-
-    const { data, error } = await db.auth.getSession();
-    if (error) throw error;
-
-    currentUser = data.session?.user || null;
-    setSignedIn(!!currentUser);
-
-    const results = await Promise.allSettled([
-      refreshLeaderboard(),
-      refreshTournaments()
-    ]);
-
-    const failed = results.some(result => result.status === "rejected");
-
-    if (currentUser) {
-      try {
-        await refreshProfile();
-      } catch (error) {
-        showError(error, "Could not load player profile.");
-      }
-    }
-
-    $("backendStatus").textContent = failed
-      ? "Connected to Supabase, but one or more database queries failed. Check SQL setup and policies."
-      : "Supabase connected. Public data queries completed.";
-
-    db.auth.onAuthStateChange((_event, session) => {
-      currentUser = session?.user || null;
-      setSignedIn(!!currentUser);
-
-      if (!currentUser) {
-        currentProfile = null;
-        $("playerXP").textContent = "0";
-        $("playerLevel").textContent = "1";
-        $("playerRank").textContent = "—";
-      } else {
-        // Defer database calls outside the auth callback.
-        setTimeout(() => {
-          refreshProfile().catch(error =>
-            showError(error, "Could not refresh profile.")
-          );
-        }, 0);
-      }
-    });
-  } catch (error) {
-    $("backendStatus").textContent =
-      "Setup error: " + (error.message || "Unable to initialize Supabase.");
-    showError(error, "Backend initialization failed.");
-  }
-}
-
-start();
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const KEY="educationalGalaxyData";
+const base={xp:0,correct:0,bookmarks:[],notes:[],goal:20,studied:0,day:new Date().toDateString(),challengeDone:false,best:0};
+let data;try{data={...base,...JSON.parse(localStorage.getItem(KEY)||"{}")}}catch{data={...base}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(data))}catch{}renderDashboard()}
+function toast(msg){$("#feedback").textContent=msg}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+if(data.day!==new Date().toDateString()){data.day=new Date().toDateString();data.studied=0;data.challengeDone=false;save()}
+function renderDashboard(){$("#xp").textContent=data.xp;$("#correct").textContent=data.correct;$("#savedCount").textContent=data.bookmarks.length;$("#notesCount").textContent=data.notes.length;$("#goal").value=String(data.goal);$("#goalBar").style.width=Math.min(100,data.studied/data.goal*100)+"%";$("#goalText").textContent=`${data.studied} / ${data.goal} minutes today`;renderAchievements();renderBookmarks()}
+$("#goal").onchange=e=>{data.goal=Number(e.target.value);save()};
+$("#search").oninput=filter;$("#category").onchange=filter;$("#sort").onchange=filter;
+function filter(){const q=$("#search").value.toLowerCase().trim(),cat=$("#category").value,sort=$("#sort").value;let cards=$$("#topics .topic");if(sort==="az")cards.sort((a,b)=>a.querySelector("h3").textContent.localeCompare(b.querySelector("h3").textContent)).forEach(c=>$("#topics").appendChild(c));let n=0;cards.forEach(c=>{const text=(c.innerText+" "+c.dataset.words).toLowerCase(),ok=text.includes(q)&&(cat==="all"||cat===c.dataset.cat);c.classList.toggle("hidden",!ok);if(ok)n++});$("#noResults").classList.toggle("hidden",n>0)}
+function renderBookmarks(){$("#bookmarks").innerHTML=data.bookmarks.length?data.bookmarks.map(x=>`<div class="item"><strong>${esc(x)}</strong><button class="remove" data-id="${esc(x)}">Remove</button></div>`).join(""):'<p class="muted">No bookmarks yet. Save a topic above.</p>';$$(".remove").forEach(b=>b.onclick=()=>toggleBookmark(b.dataset.id));$$(".save").forEach(b=>{b.textContent=data.bookmarks.includes(b.dataset.id)?"★ Saved":"☆ Save"})}
+function toggleBookmark(id){data.bookmarks=data.bookmarks.includes(id)?data.bookmarks.filter(x=>x!==id):[...data.bookmarks,id];save();renderBookmarks()}
+$$(".save").forEach(b=>b.onclick=()=>toggleBookmark(b.dataset.id));
+$$(".fact").forEach(b=>b.onclick=()=>{$("#planetFact").textContent=b.dataset.fact;data.xp++;save()});
+const qs=[
+["Space","Which planet do we live on?",["Mars","Earth","Venus","Jupiter"],1,"Earth is our home planet."],
+["Space","What is the star at the centre of our Solar System?",["Sirius","Polaris","The Sun","The Moon"],2,"The Sun is the central star of our Solar System."],
+["Science","Which science studies living organisms?",["Biology","Astronomy","Geology","Physics"],0,"Biology is the study of life."],
+["Life","Where did Homo sapiens evolve?",["Australia","Africa","Antarctica","The Moon"],1,"Current evidence shows Homo sapiens evolved in Africa."],
+["Space","How many recognised planets are in our Solar System?",["Seven","Eight","Nine","Ten"],1,"There are eight recognised planets."],
+["Science","What is the basic unit of life?",["Atom","Cell","Planet","Mineral"],1,"Cells are the basic units of life."],
+["Space","Which is the largest planet?",["Earth","Saturn","Jupiter","Neptune"],2,"Jupiter is the largest planet in our Solar System."],
+["Life","Birds are living descendants of which group?",["Pterosaurs","Theropod dinosaurs","Mammoths","Trilobites"],1,"Birds evolved from theropod dinosaurs."],
+["Science","What force attracts objects with mass?",["Friction","Gravity","Sound","Heat"],1,"Gravity is attraction between objects with mass."],
+["Earth","What changes liquid water into water vapour?",["Freezing","Evaporation","Condensation","Melting"],1,"Evaporation changes liquid water into vapour."],
+["Science","Which gas do plants use in photosynthesis?",["Oxygen","Carbon dioxide","Helium","Hydrogen"],1,"Plants use carbon dioxide during photosynthesis."],
+["History","Which river was central to ancient Egyptian civilisation?",["Nile","Amazon","Thames","Danube"],0,"The Nile supported agriculture and settlement."],
+["Technology","Which language structures web pages?",["HTML","CSS","SQL","Python"],0,"HTML provides the structure of a web page."],
+["Space","What is our galaxy called?",["Andromeda","Milky Way","Whirlpool","Sombrero"],1,"Our Solar System is part of the Milky Way."],
+["Science","What is the chemical formula for water?",["CO2","O2","H2O","NaCl"],2,"A water molecule contains two hydrogen atoms and one oxygen atom."]
+];
+let pool=[],qi=0,points=0,locked=false;
+function startQuiz(){pool=[...qs].sort(()=>Math.random()-.5);qi=0;points=0;showQ()}
+function showQ(){locked=false;const q=pool[qi];$("#question").textContent=q[1];$("#qProgress").textContent=`Question ${qi+1} of ${pool.length} · ${q[0]}`;$("#qBar").style.width=(qi/pool.length*100)+"%";$("#answers").innerHTML=q[2].map((x,i)=>`<button class="answer" data-i="${i}">${String.fromCharCode(65+i)}. ${esc(x)}</button>`).join("");$("#feedback").textContent="";$("#next").disabled=true;$("#next").textContent=qi===pool.length-1?"Finish Quiz":"Next Question →";$("#roundScore").textContent=`Round score: ${points}`;$$("[data-i]").forEach(b=>b.onclick=()=>answer(+b.dataset.i))}
+function answer(i){if(locked)return;locked=true;const q=pool[qi];$$("[data-i]").forEach(b=>{b.disabled=true;if(+b.dataset.i===q[3])b.style.borderColor="var(--accent)"});if(i===q[3]){points++;data.correct++;data.xp+=10;$("#feedback").textContent="✅ Correct! "+q[4]}else $("#feedback").textContent="Not quite. "+q[4];$("#next").disabled=false;$("#qBar").style.width=((qi+1)/pool.length*100)+"%";$("#roundScore").textContent=`Round score: ${points}`;save()}
+function finishQuiz(){data.best=Math.max(data.best,points);save();$("#question").textContent=`Quiz complete! Score: ${points} / ${pool.length}`;$("#answers").innerHTML="";$("#feedback").textContent=points===pool.length?"Perfect score! Excellent work.":"Good effort! Review and try again.";$("#next").textContent="Play Again";$("#next").onclick=()=>{$("#next").onclick=nextQuestion;startQuiz()}}
+function nextQuestion(){if(qi<pool.length-1){qi++;showQ()}else finishQuiz()}
+$("#next").onclick=nextQuestion;$("#restart").onclick=()=>{$("#next").onclick=nextQuestion;startQuiz()};
+function renderAchievements(){$("#achievements").innerHTML=[["🌱 First correct answer",data.correct>=1],["🧠 Five correct answers",data.correct>=5],["⭐ Earn 50 XP",data.xp>=50],["🔖 Save your first topic",data.bookmarks.length>=1],["🏆 Perfect quiz",data.best===15]].map(x=>`<p>${x[1]?"✅":"🔒"} ${x[0]}</p>`).join("")}
+startQuiz();
+let seconds=1200,interval=null;function timerDraw(){$("#timerDisplay").textContent=String(Math.floor(seconds/60)).padStart(2,"0")+":"+String(seconds%60).padStart(2,"0")}
+function timerPause(){clearInterval(interval);interval=null}
+$("#timerLength").onchange=()=>{timerPause();seconds=+$("#timerLength").value;timerDraw();$("#timerStatus").textContent=""};
+$("#timerStart").onclick=()=>{if(interval)return;$("#timerStatus").textContent="Study session running.";interval=setInterval(()=>{seconds--;timerDraw();if(seconds<=0){timerPause();$("#timerStatus").textContent="Session complete! +5 XP";data.xp+=5;data.studied+=Math.round(+$("#timerLength").value/60);save()}},1000)};
+$("#timerPause").onclick=()=>{timerPause();$("#timerStatus").textContent="Paused."};$("#timerReset").onclick=()=>{timerPause();seconds=+$("#timerLength").value;timerDraw();$("#timerStatus").textContent="Reset."};timerDraw();
+function renderNotes(){$("#notesList").innerHTML=data.notes.length?data.notes.map((n,i)=>`<div class="item"><div><b>${esc(n.title)}</b><p class="muted">${esc(n.body)}</p></div><button data-note="${i}">Delete</button></div>`).join(""):'<p class="muted">No notes saved yet.</p>';$$("[data-note]").forEach(b=>b.onclick=()=>{data.notes.splice(+b.dataset.note,1);save();renderNotes()})}
+$("#saveNote").onclick=()=>{let title=$("#noteTitle").value.trim(),body=$("#noteBody").value.trim();if(!title||!body){alert("Enter a title and note.");return}data.notes.unshift({title,body});save();renderNotes();$("#noteTitle").value="";$("#noteBody").value=""};
+function download(name,text,type){const a=document.createElement("a"),url=URL.createObjectURL(new Blob([text],{type}));a.href=url;a.download=name;a.click();URL.revokeObjectURL(url)}
+$("#exportNotes").onclick=()=>download("educational-galaxy-notes.txt",data.notes.map(n=>n.title+"\n"+n.body).join("\n\n"),"text/plain");
+const cards=[["What is the closest star to Earth?","The Sun."],["What is the basic unit of life?","The cell."],["What is our galaxy called?","The Milky Way."],["Which planet is known as the Red Planet?","Mars."],["What does DNA carry?","Inherited biological information."],["Which gas do plants use in photosynthesis?","Carbon dioxide."]];let fi=0,flip=false;
+function drawFlash(){$("#flashcard").textContent=cards[fi][flip?1:0];$("#flip").textContent=flip?"Show question":"Show answer";$("#flashCount").textContent=`Card ${fi+1} of ${cards.length}`}
+$("#flip").onclick=()=>{flip=!flip;drawFlash()};$("#flashNext").onclick=()=>{fi=(fi+1)%cards.length;flip=false;drawFlash()};drawFlash();
+const keys=["C","(",")","÷","7","8","9","×","4","5","6","−","1","2","3","+","±","0",".","="];$("#calcGrid").innerHTML=keys.map(k=>`<button data-key="${k}">${k}</button>`).join("");let expr="";
+$("#calcGrid").onclick=e=>{const b=e.target.closest("[data-key]");if(!b)return;const k=b.dataset.key;if(k==="C"){expr="";$("#display").value="0";return}if(k==="±"){expr=expr.startsWith("-")?expr.slice(1):"-"+expr;$("#display").value=expr||"0";return}if(k==="="){try{const s=expr.replace(/×/g,"*").replace(/÷/g,"/").replace(/−/g,"-");if(!/^[0-9+\-*/().\s]+$/.test(s)||!s.trim())throw Error();const r=Function('"use strict";return ('+s+')')();if(!Number.isFinite(r))throw Error();expr=String(Math.round(r*1e8)/1e8);$("#display").value=expr}catch{$("#display").value="Error";expr=""}return}expr+=k;$("#display").value=expr};
+function convert(){const v=Number($("#unitValue").value),t=$("#unitType").value;let r,u;if(t==="km"){r=v*.621371;u="miles"}else if(t==="mi"){r=v*1.609344;u="km"}else if(t==="c"){r=v*9/5+32;u="°F"}else if(t==="f"){r=(v-32)*5/9;u="°C"}else if(t==="kg"){r=v*2.204623;u="lb"}else{r=v*3.28084;u="ft"}$("#unitResult").textContent=Number.isFinite(r)?`${Number(r.toFixed(5))} ${u}`:"Enter a number"}
+$("#unitValue").oninput=convert;$("#unitType").onchange=convert;convert();
+$("#speak").onclick=()=>{if(!("speechSynthesis"in window)){alert("Speech is not supported in this browser.");return}const t=$("#readText").value.trim();if(!t)return;speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(t));$("#speechStatus").textContent="Reading aloud…"};
+$("#stopSpeak").onclick=()=>{if("speechSynthesis"in window)speechSynthesis.cancel();$("#speechStatus").textContent="Speech stopped."};
+$("#readTip").onclick=()=>{if("speechSynthesis"in window)speechSynthesis.speak(new SpeechSynthesisUtterance("Try explaining what you learned in your own words. Regular short sessions can help memory."))};
+const terms=[["Asteroid","A small rocky or metallic body orbiting the Sun."],["Atom","A basic unit of a chemical element."],["Biodiversity","The variety of life in an area."],["Cell","The basic structural and functional unit of life."],["Climate","Long-term patterns of weather conditions."],["DNA","Molecule that carries genetic instructions."],["Ecosystem","Living things interacting with their environment."],["Evolution","Change in inherited characteristics over generations."],["Fossil","Preserved remains or traces of ancient life."],["Galaxy","A large system of stars, gas, dust and dark matter."],["Gene","A unit of hereditary information."],["Gravity","Attraction between objects with mass."],["Habitat","The natural home of an organism."],["Light-year","Distance light travels in one year."],["Molecule","Two or more atoms chemically bonded."],["Nebula","A cloud of gas and dust in space."],["Orbit","The path of one object around another."],["Photosynthesis","Process plants use to turn light into chemical energy."],["Planet","A celestial body orbiting a star that meets planetary criteria."],["Species","A group used in biological classification."]];
+function drawGlossary(){let q=$("#glossSearch").value.toLowerCase();let a=terms.filter(x=>x.join(" ").toLowerCase().includes(q));$("#glossary").innerHTML=a.map(x=>`<tr><td><b>${esc(x[0])}</b></td><td>${esc(x[1])}</td></tr>`).join("")||'<tr><td colspan="2">No terms found.</td></tr>'}
+$("#glossSearch").oninput=drawGlossary;drawGlossary();
+const challenges=[["Space Detective","Learn one new fact about a planet."],["Science Observer","Write one question about a plant or animal."],["History Explorer","Learn one fact about an ancient civilization."],["Word Builder","Choose three glossary terms and explain them."],["Curiosity Question","Write a science question you would like to investigate."],["Memory Mission","Review a flashcard and make your own example."],["Earth Helper","Think of one way to reduce waste."]];
+let ci=Math.floor(Date.now()/86400000)%challenges.length;
+function drawChallenge(){$("#challengeTitle").textContent=challenges[ci][0];$("#challengeText").textContent=challenges[ci][1];$("#challengeStatus").textContent=data.challengeDone?"Completed today!":"Not completed yet.";$("#completeChallenge").disabled=data.challengeDone}
+$("#completeChallenge").onclick=()=>{if(data.challengeDone)return;data.challengeDone=true;data.xp+=10;save();drawChallenge()};$("#newChallenge").onclick=()=>{ci=(ci+1)%challenges.length;drawChallenge()};drawChallenge();
+$("#theme").onclick=()=>{const light=document.documentElement.dataset.theme!=="light";document.documentElement.dataset.theme=light?"light":"dark";$("#theme").textContent=light?"☀️":"🌙";try{localStorage.setItem("eg-theme",light?"light":"dark")}catch{}};
+try{if(localStorage.getItem("eg-theme")==="light"){document.documentElement.dataset.theme="light";$("#theme").textContent="☀️"}}catch{}
+let bn=false;$("#language").onclick=()=>{bn=!bn;$("#language").textContent=bn?"English":"বাংলা";$("#heroTitle").innerHTML=bn?'তোমার <span class="gradient">জ্ঞান মহাবিশ্ব</span>':'Your Universe of <span class="gradient">Knowledge</span>';$("#heroText").textContent=bn?"মহাকাশ, মানব বিবর্তন, বিজ্ঞান, ডাইনোসর ও আমাদের গ্রহের বিস্ময় আবিষ্কার করো।":"Explore space, human evolution, science, dinosaurs and the wonders of our planet.";document.documentElement.lang=bn?"bn":"en"};
+let fs=16;$("#larger").onclick=()=>{fs=Math.min(23,fs+1);document.body.style.fontSize=fs+"px"};$("#smaller").onclick=()=>{fs=Math.max(13,fs-1);document.body.style.fontSize=fs+"px"};$("#fontReset").onclick=()=>{fs=16;document.body.style.fontSize=""};$("#print").onclick=()=>window.print();
+$("#exportData").onclick=()=>download("educational-galaxy-backup.json",JSON.stringify(data,null,2),"application/json");
+$("#importData").onclick=()=>$("#importFile").click();$("#importFile").onchange=async e=>{try{const d=JSON.parse(await e.target.files[0].text());if(!Array.isArray(d.bookmarks)||!Array.isArray(d.notes))throw Error();data={...base,...d};save();renderNotes();renderBookmarks();alert("Backup imported.")}catch{alert("Could not import this backup file.")}e.target.value=""};
+$("#resetData").onclick=()=>{if(confirm("Delete your saved local learning data?")){data={...base,day:new Date().toDateString()};save();renderNotes();renderBookmarks();alert("Local data reset.")}};
+$("#year").textContent=new Date().getFullYear();renderDashboard();renderNotes();renderBookmarks();
 </script>
 </body>
 </html>
